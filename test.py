@@ -1,6 +1,7 @@
 import unittest
 from FindTheMedian.main import findMedian
 from FlippingTheMatrix.main import flippingMatrix
+from SorkMerchant.sorkMerchant import sorkMerchant
 from SubarrayDivision1.main import birthday
 from XORStrings2.main import strings_xor
 
@@ -36,6 +37,13 @@ class MainTestCase(unittest.TestCase):
 
         self.assertEqual(flippingMatrix(matrix_1), expected_1)
         self.assertEqual(flippingMatrix(matrix_2), expected_2)
+
+    def test_sork_merchant(self):
+        n = 9
+        arr = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+        expected = 3
+
+        self.assertEqual(sorkMerchant(n, arr), expected)
 
 
 if __name__ == '__main__':
