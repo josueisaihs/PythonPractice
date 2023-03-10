@@ -1,6 +1,7 @@
 import unittest
 from FindTheMedian.main import findMedian
 from FlippingTheMatrix.main import flippingMatrix
+from ReverseLinkedList.main import create_linked_list, reverse_linked_list, reverse_linked_list_recursive
 from SorkMerchant.sorkMerchant import sorkMerchant
 from SubarrayDivision1.main import birthday
 from XORStrings2.main import strings_xor
@@ -44,6 +45,22 @@ class MainTestCase(unittest.TestCase):
         expected = 3
 
         self.assertEqual(sorkMerchant(n, arr), expected)
+
+    def test_reverse_linked_list(self):
+        list_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        expected_1 = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+        list_2 = [100, 99, 98, 97, 96, 95]
+        expected_2 = [95, 96, 97, 98, 99, 100]
+
+        self.assertEqual(create_linked_list(list_1).get_list(), list_1)
+        self.assertEqual(create_linked_list(list_2).get_list(), list_2)
+
+        self.assertEqual(reverse_linked_list(create_linked_list(list_1)).get_list(), expected_1)
+        self.assertEqual(reverse_linked_list(create_linked_list(list_2)).get_list(), expected_2)
+
+        self.assertEqual(reverse_linked_list_recursive(create_linked_list(list_1)).get_list(), expected_1)
+        self.assertEqual(reverse_linked_list_recursive(create_linked_list(list_2)).get_list(), expected_2)
 
 
 if __name__ == '__main__':
