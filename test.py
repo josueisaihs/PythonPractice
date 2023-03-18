@@ -1,9 +1,11 @@
 import unittest
 from FindTheMedian.main import findMedian
 from FlippingTheMatrix.main import flippingMatrix
+from OpenAI.enviroment import environ
 from ReverseLinkedList.main import create_linked_list, reverse_linked_list, reverse_linked_list_recursive
 from SorkMerchant.sorkMerchant import sorkMerchant
 from SubarrayDivision1.main import birthday
+from UseProperty.main import User
 from XORStrings2.main import strings_xor
 
 class MainTestCase(unittest.TestCase):    
@@ -61,7 +63,13 @@ class MainTestCase(unittest.TestCase):
 
         self.assertEqual(reverse_linked_list_recursive(create_linked_list(list_1)).get_list(), expected_1)
         self.assertEqual(reverse_linked_list_recursive(create_linked_list(list_2)).get_list(), expected_2)
+    
+    def test_use_property(self):
+        user = User("John")
+        self.assertEqual(user.username, "John")
 
+    def test_read_env(self):
+        self.assertEqual(environ(".env")["TEST"], "TEST")
 
 if __name__ == '__main__':
     unittest.main()
