@@ -1,4 +1,5 @@
 import unittest
+from DrawingBook.main import pagecount
 from FindTheMedian.main import findMedian
 from FlippingTheMatrix.main import flippingMatrix
 from OpenAI.enviroment import environ
@@ -70,6 +71,10 @@ class MainTestCase(unittest.TestCase):
 
     def test_read_env(self):
         self.assertEqual(environ(".env")["TEST"], "TEST")
+
+    def test_page_count(self):
+        self.assertEqual(pagecount(6, 2), 1)
+        self.assertEqual(pagecount(5, 4), 0)
 
 if __name__ == '__main__':
     unittest.main()
